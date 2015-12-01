@@ -10,83 +10,49 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-private ArrayList<Button> knopLijst=new ArrayList<Button>();
-    private Speler speler1=new Speler();
-    private Speler speler2=new Speler();
-    private Speler spelerBeurt;
-
+    private Spel spel;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        speler1.setZetImage("X");
-        speler2.setZetImage("O");
-        spelerBeurt=speler1;
-
-        knopLijst.add((Button) findViewById((R.id.button1)));
-        knopLijst.add((Button)findViewById((R.id.button2)));
-        knopLijst.add((Button)findViewById((R.id.button3)));
-        knopLijst.add((Button)findViewById((R.id.button4)));
-        knopLijst.add((Button)findViewById((R.id.button5)));
-        knopLijst.add((Button)findViewById((R.id.button6)));
-        knopLijst.add((Button) findViewById((R.id.button7)));
-        knopLijst.add((Button) findViewById((R.id.button8)));
-        knopLijst.add((Button) findViewById((R.id.button9)));
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+        setContentView(R.layout.content_main);
+        Bundle bundle = getIntent().getExtras();
+        String spelers=bundle.getParcelable("spelers");
+        Log.i("create",""+spelers);
+        spelMaken("" + bundle.getParcelable("spelers"));
     }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+    private void spelMaken(String spelers){
+        ArrayList<ImageButton> knopLijst=new ArrayList<ImageButton>();
+        knopLijst.add((ImageButton) findViewById((R.id.button1)));
+        knopLijst.add((ImageButton)findViewById((R.id.button2)));
+        knopLijst.add((ImageButton)findViewById((R.id.button3)));
+        knopLijst.add((ImageButton)findViewById((R.id.button4)));
+        knopLijst.add((ImageButton)findViewById((R.id.button5)));
+        knopLijst.add((ImageButton)findViewById((R.id.button6)));
+        knopLijst.add((ImageButton) findViewById((R.id.button7)));
+        knopLijst.add((ImageButton) findViewById((R.id.button8)));
+        knopLijst.add((ImageButton) findViewById((R.id.button9)));
+        spel = new Spel(knopLijst,spelers);
+        ((TextView)findViewById(R.id.speler1)).setText("Speler 1");
+        Log.i("speler",spelers);
+        if (spelers.equals("1v1")){
+            ((TextView)findViewById(R.id.speler2)).setText("Speler 2");
         }
-
-        return super.onOptionsItemSelected(item);
+        else if(spelers.equals("1vAi")){
+            ((TextView)findViewById(R.id.speler2)).setText("AI");
+        }
     }
+
+
     public void onClick(View v){
-        Button buttonClicked=(Button) findViewById(v.getId());
-        for (Button knop:knopLijst) {
-            if(buttonClicked.equals(knop)){
-                knop.setText(spelerBeurt.getZetImage());
-            }
-        }
-        //check();
-        volgendeZet();
+        ImageButton buttonClicked=(ImageButton) findViewById(v.getId());
+        spel.volgendezet(buttonClicked);
     }
-    private void volgendeZet(){
-        if (spelerBeurt.equals(speler1)){
-            spelerBeurt=speler2;
-        }
-        else{
-            spelerBeurt=speler1;
-        }
-    }
+
 
 }
