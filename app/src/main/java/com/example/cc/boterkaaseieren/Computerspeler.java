@@ -17,14 +17,19 @@ public class Computerspeler extends Speler {
         ArrayList<ImageButton> mogelijkeZetten=getMogelijkeZetten();
         int randomgetal=(int)(Math.random()*(double)mogelijkeZetten.size());
         // hier zet je de image om naar iets anders. ook is het nodig  de image knop niet clickbaar maken
-        //mogelijkeZetten.get(randomgetal).seti
-        //mogelijkeZetten.get(randomgetal).setClickable(false);
+        if(image.equals("X")) {
+            mogelijkeZetten.get(randomgetal).setImageResource(R.drawable.x);
+        }
+        else{
+            mogelijkeZetten.get(randomgetal).setImageResource(R.drawable.dot);
+        }
+        mogelijkeZetten.get(randomgetal).setClickable(false);
     }
     private ArrayList<ImageButton> getMogelijkeZetten(){
         // zoekt alle mogelijke zetten die de computer kan doen
         ArrayList<ImageButton>  mogelijkeZet=new ArrayList<ImageButton>();
         for (ImageButton knop:boterKaasEireren) {
-            if(!knop.isClickable()){
+            if(knop.isClickable()){
                 mogelijkeZet.add(knop);
             }
         }

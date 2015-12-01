@@ -1,5 +1,6 @@
 package com.example.cc.boterkaaseieren;
 
+import android.util.Log;
 import android.widget.Button;
 import android.widget.ImageButton;
 
@@ -17,8 +18,14 @@ public class Gebruiker extends Speler{
         for (ImageButton knop:boterKaasEireren) {
             if(geklikteKnop.equals(knop)){
                 // hier gaat de speler een zet doen knop moet ook niet klikbaar maken
-                //knop.seti
-               // knop.setClickable(false);
+
+                if(image.equals("X")) {
+                    knop.setImageResource(R.drawable.x);
+                }
+                else{
+                    knop.setImageResource(R.drawable.dot);
+                }
+                knop.setClickable(false);
             }
         }
     }
