@@ -1,5 +1,6 @@
 package com.example.cc.boterkaaseieren;
 
+import android.util.Log;
 import android.widget.ImageButton;
 
 import java.util.ArrayList;
@@ -15,13 +16,17 @@ public class Computerspeler extends Speler {
     @Override
     public void zetSpelen(ImageButton knop) {
         ArrayList<ImageButton> mogelijkeZetten=getMogelijkeZetten();
+        Log.d("mogelijke zetten",""+mogelijkeZetten.size());
         int randomgetal=(int)(Math.random()*(double)mogelijkeZetten.size());
         // hier zet je de image om naar iets anders. ook is het nodig  de image knop niet clickbaar maken
         if(image.equals("X")) {
             mogelijkeZetten.get(randomgetal).setImageResource(R.drawable.x);
+            mogelijkeZetten.get(randomgetal).setTag("X");
         }
         else{
-            mogelijkeZetten.get(randomgetal).setImageResource(R.drawable.dot);
+            //mogelijkeZetten.get(randomgetal).setImageResource(R.drawable.dot);
+            mogelijkeZetten.get(randomgetal).setBackgroundColor(100);
+            mogelijkeZetten.get(randomgetal).setTag("O");
         }
         mogelijkeZetten.get(randomgetal).setClickable(false);
     }

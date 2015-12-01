@@ -21,9 +21,11 @@ public class Gebruiker extends Speler{
 
                 if(image.equals("X")) {
                     knop.setImageResource(R.drawable.x);
+                    knop.setTag("X");
                 }
                 else{
                     knop.setImageResource(R.drawable.dot);
+                    knop.setTag("O");
                 }
                 knop.setClickable(false);
             }

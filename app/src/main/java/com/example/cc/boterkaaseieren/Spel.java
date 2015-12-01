@@ -43,7 +43,7 @@ public class Spel {
             lockImageButtons();
             Log.d("winnaar", "speler");
         }
-
+        else{
         //verandert van beurt
         if (beurt.equals(spelers.get(0))) {
             //check of de speler tegen computer speelt
@@ -63,7 +63,7 @@ public class Spel {
         {
             beurt = spelers.get(0);
 
-        }
+        }}
     }
 
 
@@ -83,49 +83,42 @@ public class Spel {
         // TODO laten zien hoe er gewonnen is
         // TODO juiste manier vinden om te zien welke rij hetzelfde is background lukt niet
         // horizontale controle
-        Log.d("back1",""+tegels[0][0].getBackground().);
-        Log.d("back2",""+tegels[0][1].getBackground().getCurrent());
-        Log.d("back3",""+tegels[0][2].getBackground());
-        Log.d("check1",""+(!tegels[0][0].isClickable()));
-        Log.d("check2", "" + tegels[0][0].getBackground().equals(tegels[0][1].getBackground()));
-        Log.d("check3", "" + tegels[0][0].getBackground().equals(tegels[0][1].getBackground()));
-        Log.d("checktot",""+(!tegels[0][0].isClickable()&&tegels[0][0].getBackground().equals(tegels[0][1].getBackground()) && tegels[0][0].getBackground().equals(tegels[0][2].getBackground())));
-        if (!tegels[0][0].isClickable()&&tegels[0][0].getBackground().equals(tegels[0][1].getBackground()) && tegels[0][0].getBackground().equals(tegels[0][2].getBackground())) {
+        if (!tegels[0][0].isClickable()&&tegels[0][0].getTag().equals(tegels[0][1].getTag()) && tegels[0][0].getTag().equals(tegels[0][2].getTag())) {
             uitgespeeld = true;
             Log.d("hori ","1");
 
         }
-        if (!tegels[1][0].isClickable()&&tegels[1][0].getBackground().equals(tegels[1][1].getBackground()) && tegels[1][0].getBackground().equals(tegels[1][2].getBackground())) {
+        if (!tegels[1][0].isClickable()&&tegels[1][0].getTag().equals(tegels[1][1].getTag()) && tegels[1][0].getTag().equals(tegels[1][2].getTag())) {
             uitgespeeld = true;
             Log.d("hori ","2");
 
         }
-        if (!tegels[2][0].isClickable()&&tegels[2][0].getBackground().equals(tegels[2][1].getBackground()) && tegels[2][0].getBackground().equals(tegels[2][2].getBackground())) {
+        if (!tegels[2][0].isClickable()&&tegels[2][0].getTag().equals(tegels[2][1].getTag()) && tegels[2][0].getTag().equals(tegels[2][2].getTag())) {
             uitgespeeld = true;
             Log.d("hori ","3");
         }
 
         //verticale controle
 
-        if (!tegels[0][0].isClickable()&&tegels[0][0].getBackground().equals(tegels[1][0].getBackground()) && tegels[0][0].getBackground().equals(tegels[2][0].getBackground())) {
+        if (!tegels[0][0].isClickable()&&tegels[0][0].getTag().equals(tegels[1][0].getTag()) && tegels[0][0].getTag().equals(tegels[2][0].getTag())) {
             uitgespeeld = true;
             Log.d("verti ","1");
         }
-        if (!tegels[0][1].isClickable()&&tegels[0][1].getBackground().equals(tegels[1][1].getBackground()) && tegels[0][1].getBackground().equals(tegels[2][1].getBackground())) {
+        if (!tegels[0][1].isClickable()&&tegels[0][1].getTag().equals(tegels[1][1].getTag()) && tegels[0][1].getTag().equals(tegels[2][1].getTag())) {
             uitgespeeld = true;
             Log.d("verti ","2");
         }
-        if (!tegels[0][2].isClickable()&&tegels[0][2].getBackground().equals(tegels[1][2].getBackground()) && tegels[0][2].getBackground().equals(tegels[2][2].getBackground())) {
+        if (!tegels[0][2].isClickable()&&tegels[0][2].getTag().equals(tegels[1][2].getTag()) && tegels[0][2].getTag().equals(tegels[2][2].getTag())) {
             uitgespeeld = true;
             Log.d("verti ","3");
         }
 
         //controle diogonaal
-        if (!tegels[0][0].isClickable()&&tegels[0][0].getBackground().equals(tegels[1][1].getBackground()) && tegels[0][0].getBackground().equals(tegels[2][2].getBackground())) {
+        if (!tegels[0][0].isClickable()&&tegels[0][0].getTag().equals(tegels[1][1].getTag()) && tegels[0][0].getTag().equals(tegels[2][2].getTag())) {
             uitgespeeld = true;
             Log.d("dio ","linksrechts");
         }
-        if (!tegels[0][2].isClickable()&&tegels[0][2].getBackground().equals(tegels[1][1].getBackground()) && tegels[0][2].getBackground().equals(tegels[2][0].getBackground())) {
+        if (!tegels[0][2].isClickable()&&tegels[0][2].getTag().equals(tegels[1][1].getTag()) && tegels[0][2].getTag().equals(tegels[2][0].getTag())) {
             uitgespeeld = true;
             Log.d("dio ","rechtlinks");
         }
