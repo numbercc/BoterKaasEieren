@@ -24,8 +24,8 @@ public class Computerspeler extends Speler {
             mogelijkeZetten.get(randomgetal).setTag("X");
         }
         else{
-            //mogelijkeZetten.get(randomgetal).setImageResource(R.drawable.dot);
-            mogelijkeZetten.get(randomgetal).setBackgroundColor(100);
+            mogelijkeZetten.get(randomgetal).setImageResource(R.drawable.dot);
+            //mogelijkeZetten.get(randomgetal).setBackgroundColor(100);
             mogelijkeZetten.get(randomgetal).setTag("O");
         }
         mogelijkeZetten.get(randomgetal).setClickable(false);

@@ -3,21 +3,27 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <RadioButton
+    <RadioGroup
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="1 vs 1"
-        android:id="@+id/rdb_1vs1"
-        android:layout_gravity="center_horizontal"
-        android:checked="true" />
+        android:layout_gravity="center_horizontal">
 
-    <RadioButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="vs computer"
-        android:id="@+id/rdb_1vAi"
-        android:layout_gravity="center_horizontal"
-        android:checked="false" />
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1 vs 1"
+            android:id="@+id/rdb_1vs1"
+            android:layout_gravity="center_horizontal"
+            android:checked="true" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="vs computer"
+            android:id="@+id/rdb_1vAi"
+            android:layout_gravity="center_horizontal"
+            android:checked="false" />
+    </RadioGroup>
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -27,4 +33,5 @@
         android:id="@+id/button_play"
         android:onClick="onClick"
         android:layout_gravity="center_horizontal" />
+
 </LinearLayout>

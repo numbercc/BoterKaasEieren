@@ -3,8 +3,10 @@ package com.example.cc.boterkaaseieren;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
+import android.widget.RadioButton;
 
 /**
  * Created by cc on 1-12-2015.
@@ -17,17 +19,16 @@ public class MenuActivity extends Activity {
     }
     public void onClick(View view) {
         String speler;
-        if (view.getId()==R.id.rdb_1vAi){
+        RadioButton rb= (RadioButton)findViewById(R.id.rdb_1vAi);
+        if (rb.isChecked()){
             speler="1vAi";
         }
         else{
             speler="1v1";
         }
-        Log.i("Spel",speler);
+        Log.i("Spel", speler);
         Intent intent = new Intent(this, MainActivity.class);
-        Bundle bundle=new Bundle();
-        bundle.putString("spelers",speler);
-        intent.putExtras(bundle);
-        startActivityForResult(intent, 0);
+        intent.putExtra("spelers", speler);
+        startActivity(intent);
     }
 }

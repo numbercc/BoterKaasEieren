@@ -22,9 +22,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.content_main);
         Bundle bundle = getIntent().getExtras();
-        String spelers=bundle.getParcelable("spelers");
+        String spelers=getIntent().getStringExtra("spelers");
         Log.i("create",""+spelers);
-        spelMaken("" + bundle.getParcelable("spelers"));
+        spelMaken("" + spelers);
     }
     private void spelMaken(String spelers){
         ArrayList<ImageButton> knopLijst=new ArrayList<ImageButton>();

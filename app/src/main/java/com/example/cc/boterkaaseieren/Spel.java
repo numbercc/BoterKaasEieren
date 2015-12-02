@@ -22,14 +22,15 @@ public class Spel {
                 volgende++;
             }
         }
+        Log.d("spelers check",str_spelers);
         spelers.add(new Gebruiker(lijst));
         beurt = spelers.get(0);
+        //spelers.add(new Gebruiker(lijst));
         if (str_spelers.equals("1v1")) {
 
             spelers.add(new Gebruiker(lijst));
 
-        } else {
-            //if (str_spelers.equals("1vAi")){
+        } else if (str_spelers.equals("1vAi")){
             spelers.add(new Computerspeler(lijst));
         }
         spelers.get(0).setImage("X");
