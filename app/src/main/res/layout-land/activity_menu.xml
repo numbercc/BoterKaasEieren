@@ -20,6 +20,7 @@
         android:id="@+id/radioGroup"
         android:layout_gravity="center_horizontal"
         android:layout_centerHorizontal="true"
+        android:layout_below="@+id/imageView2"
         android:layout_centerVertical="true" >
 
         <RadioButton

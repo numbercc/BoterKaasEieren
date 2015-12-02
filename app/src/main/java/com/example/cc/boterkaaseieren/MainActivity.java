@@ -1,6 +1,9 @@
 package com.example.cc.boterkaaseieren;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
+import android.os.PersistableBundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -18,17 +21,20 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     private Spel spel;
+    Bundle bundle;
+    ArrayList<ImageButton> knopLijst;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.content_main);
-        Bundle bundle = getIntent().getExtras();
+        setContentView(R.layout.activity_main);
+        bundle = getIntent().getExtras();
         String spelers=getIntent().getStringExtra("spelers");
         Log.i("create",""+spelers);
         spelMaken("" + spelers);
     }
     private void spelMaken(String spelers){
-        ArrayList<ImageButton> knopLijst=new ArrayList<ImageButton>();
+        knopLijst= new ArrayList<>();
         knopLijst.add((ImageButton) findViewById((R.id.button1)));
         knopLijst.add((ImageButton)findViewById((R.id.button2)));
         knopLijst.add((ImageButton)findViewById((R.id.button3)));
@@ -59,4 +65,24 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    public void reset(View view) {
+        for (ImageButton knop : knopLijst) {
+            knop.setImageResource(android.R.color.transparent);
+            knop.setClickable(true);
+        }
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        outState.putParcelable("game", spel);
+        //outState.putParcelable("list", (Parcelable) knopLijst);  // TODO figure out how to save the game state
+        super.onSaveInstanceState(outState);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        spel = (Spel) savedInstanceState.get("game");
+        //knopLijst = (ArrayList<ImageButton>) savedInstanceState.get("list");  //TODO figure out how to save the game state
+    }
 }

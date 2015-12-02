@@ -1,5 +1,7 @@
 package com.example.cc.boterkaaseieren;
 
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -10,9 +12,9 @@ import java.util.ArrayList;
 /**
  * Created by cc on 30-11-2015.
  */
-public class Spel {
+public class Spel implements Parcelable{
     private ImageButton[][] tegels = new ImageButton[3][3];
-    private ArrayList<Speler> spelers = new ArrayList<Speler>();
+    private ArrayList<Speler> spelers = new ArrayList<>();
     private Speler beurt;
 
     public Spel(ArrayList<ImageButton> lijst, String str_spelers) {
@@ -41,6 +43,21 @@ public class Spel {
         spelers.get(1).setImage("O");
 
     }
+
+    protected Spel(Parcel in) {
+    }
+
+    public static final Creator<Spel> CREATOR = new Creator<Spel>() {
+        @Override
+        public Spel createFromParcel(Parcel in) {
+            return new Spel(in);
+        }
+
+        @Override
+        public Spel[] newArray(int size) {
+            return new Spel[size];
+        }
+    };
 
     public Speler volgendezet(ImageButton knop) {
         Speler winnaar=null;
@@ -131,5 +148,14 @@ public class Spel {
         }
 
         return uitgespeeld;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
     }
 }
