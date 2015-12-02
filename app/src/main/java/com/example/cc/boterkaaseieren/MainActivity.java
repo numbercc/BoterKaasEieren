@@ -66,10 +66,13 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void reset(View view) {
-        for (ImageButton knop : knopLijst) {
-            knop.setImageResource(android.R.color.transparent);
-            knop.setClickable(true);
-        }
+//        for (ImageButton knop : knopLijst) {
+//            knop.setImageResource(android.R.color.transparent);
+//            knop.setClickable(true);
+//        }
+        Intent intent = getIntent();
+        finish();
+        startActivity(intent);
     }
 
     @Override
