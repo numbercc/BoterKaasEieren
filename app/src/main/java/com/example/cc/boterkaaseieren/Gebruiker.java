@@ -16,6 +16,7 @@ public class Gebruiker extends Speler{
     @Override
     public void zetSpelen(ImageButton geklikteKnop) {
         for (ImageButton knop:boterKaasEireren) {
+
             if(geklikteKnop.equals(knop)){
                 // hier gaat de speler een zet doen knop moet ook niet klikbaar maken
 

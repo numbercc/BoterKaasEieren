@@ -25,5 +25,9 @@ public abstract class Speler {
         this.naam = naam;
     }
 
+    public void setBoterKaasEireren(ArrayList<ImageButton> boterKaasEireren) {
+        this.boterKaasEireren = boterKaasEireren;
+    }
+
     public abstract void zetSpelen(ImageButton knop);
 }

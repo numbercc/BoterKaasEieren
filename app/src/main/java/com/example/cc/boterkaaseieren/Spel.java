@@ -18,14 +18,8 @@ public class Spel implements Parcelable{
     private Speler beurt;
 
     public Spel(ArrayList<ImageButton> lijst, String str_spelers) {
-        int volgende=0;
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                tegels[i][j] = lijst.get(volgende);
-                volgende++;
-            }
-        }
-        Log.d("spelers check",str_spelers);
+
+        matrixMaken(lijst);
         spelers.add(new Gebruiker(lijst));
         beurt = spelers.get(0);
         //spelers.add(new Gebruiker(lijst));
@@ -42,6 +36,23 @@ public class Spel implements Parcelable{
         spelers.get(0).setNaam("speler 1");
         spelers.get(1).setImage("O");
 
+    }
+    public void matrixMaken(ArrayList<ImageButton> lijst){
+
+        int volgende=0;
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                tegels[i][j] = lijst.get(volgende);
+                volgende++;
+            }
+        }
+    }
+
+    public void setTegels(ArrayList<ImageButton> tegels) {
+        matrixMaken(tegels);
+        for (Speler speler:spelers) {
+            speler.setBoterKaasEireren(tegels);
+        }
     }
 
     public ImageButton[][] getTegels() {

@@ -75,7 +75,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onSaveInstanceState(Bundle outState) {
         outState.putParcelable("game", spel);
-        //outState.putParcelable("list",  knopLijst);  // TODO figure out how to save the game state
         super.onSaveInstanceState(outState);
     }
 
@@ -83,22 +82,39 @@ public class MainActivity extends AppCompatActivity {
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
         spel = (Spel) savedInstanceState.get("game");
-        // knopLijst = (ArrayList<ImageButton>) savedInstanceState.get("list");  //TODO figure out how to save the game statefor (int i = 0; i < 3; i++) {
-        knopLijst=new ArrayList<>();
+        ArrayList<ImageButton>opgeslagenKnopLijst=new ArrayList<>();
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
-                knopLijst.add(spel.getTegels()[i][j]);
+                opgeslagenKnopLijst.add(spel.getTegels()[i][j]);
             }
         }
-        ((ImageButton) findViewById((R.id.button1))).setBackground(knopLijst.get(0).getBackground());
-        ((ImageButton) findViewById((R.id.button2))).setBackground(knopLijst.get(1).getBackground());
-        ((ImageButton) findViewById((R.id.button3))).setBackground(knopLijst.get(2).getBackground());
-        ((ImageButton) findViewById((R.id.button4))).setBackground(knopLijst.get(3).getBackground());
-        ((ImageButton) findViewById((R.id.button5))).setBackground(knopLijst.get(4).getBackground());
-        ((ImageButton) findViewById((R.id.button6))).setBackground(knopLijst.get(5).getBackground());
-        ((ImageButton) findViewById((R.id.button7))).setBackground(knopLijst.get(6).getBackground());
-        ((ImageButton) findViewById((R.id.button8))).setBackground(knopLijst.get(7).getBackground());
-        ((ImageButton) findViewById((R.id.button9))).setBackground(knopLijst.get(8).getBackground());
+        int i=0;
+        knopLijst = new ArrayList<>();
+        knopLijst.add((ImageButton) findViewById((R.id.button1)));
+        knopLijst.add((ImageButton) findViewById((R.id.button2)));
+        knopLijst.add((ImageButton) findViewById((R.id.button3)));
+        knopLijst.add((ImageButton) findViewById((R.id.button4)));
+        knopLijst.add((ImageButton) findViewById((R.id.button5)));
+        knopLijst.add((ImageButton) findViewById((R.id.button6)));
+        knopLijst.add((ImageButton) findViewById((R.id.button7)));
+        knopLijst.add((ImageButton) findViewById((R.id.button8)));
+        knopLijst.add((ImageButton) findViewById((R.id.button9)));
+        for (ImageButton knop:opgeslagenKnopLijst) {
+            knopLijst.get(i).setTag(knop.getTag());
+            knopLijst.get(i).setClickable(true);
+            if(knop.getTag()!=null) {
+                if (knop.getTag().equals("X")) {
+                    knopLijst.get(i).setImageResource(R.drawable.x);
+                } else if (knop.getTag().equals("O")) {
+                    knopLijst.get(i).setImageResource(R.drawable.dot);
+                }
+                knopLijst.get(i).setClickable(false);
+            }
+
+            Log.d(""+i,""+knopLijst.get(i).isClickable());
+            i++;
+        }
+        spel.setTegels(knopLijst);
 
 
     }
