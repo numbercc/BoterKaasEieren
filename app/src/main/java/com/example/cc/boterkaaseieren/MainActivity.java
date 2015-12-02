@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -51,7 +52,10 @@ public class MainActivity extends AppCompatActivity {
 
     public void onClick(View v){
         ImageButton buttonClicked=(ImageButton) findViewById(v.getId());
-        spel.volgendezet(buttonClicked);
+        Speler winnaar=spel.volgendezet(buttonClicked);
+        if (winnaar!=null){
+            Toast.makeText(this,"Winnaar is "+winnaar.getNaam(),Toast.LENGTH_LONG).show();
+        }
     }
 
 

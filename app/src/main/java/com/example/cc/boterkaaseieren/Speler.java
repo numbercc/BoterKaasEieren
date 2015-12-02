@@ -10,10 +10,19 @@ import java.util.ArrayList;
  */
 public abstract class Speler {
     protected String image;
+    protected String naam;
     protected ArrayList<ImageButton> boterKaasEireren;
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public String getNaam() {
+        return naam;
+    }
+
+    public void setNaam(String naam) {
+        this.naam = naam;
     }
 
     public abstract void zetSpelen(ImageButton knop);
