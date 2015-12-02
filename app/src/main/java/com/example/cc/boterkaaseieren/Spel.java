@@ -44,6 +44,10 @@ public class Spel implements Parcelable{
 
     }
 
+    public ImageButton[][] getTegels() {
+        return tegels;
+    }
+
     protected Spel(Parcel in) {
     }
 
