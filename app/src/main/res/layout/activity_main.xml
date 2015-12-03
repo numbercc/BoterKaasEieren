@@ -12,7 +12,9 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_margin="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:contentDescription="@string/logo" />
 
     <GridLayout
@@ -35,7 +37,7 @@
             android:layout_column="0"
             android:scaleType="fitCenter"
             android:adjustViewBounds="true"
-            android:padding="0dp"/>
+            android:padding="10dp"/>
 
         <ImageButton
             android:id="@+id/button2"
@@ -46,7 +48,8 @@
             android:layout_height="80dp"
             android:background="@mipmap/black"
             android:scaleType="fitCenter"
-            android:adjustViewBounds="true" />
+            android:adjustViewBounds="true"
+            android:padding="10dp"/>
 
         <ImageButton
             android:layout_width="80dp"
@@ -57,7 +60,8 @@
             android:layout_row="0"
             android:layout_column="2"
             android:scaleType="fitCenter"
-            android:adjustViewBounds="true"/>
+            android:adjustViewBounds="true"
+            android:padding="10dp"/>
 
         <ImageButton
             android:layout_width="80dp"
@@ -68,7 +72,8 @@
             android:layout_row="1"
             android:layout_column="0"
             android:scaleType="fitCenter"
-            android:adjustViewBounds="true" />
+            android:adjustViewBounds="true"
+            android:padding="10dp"/>
 
         <ImageButton
             android:layout_width="80dp"
@@ -80,6 +85,7 @@
             android:layout_column="1"
             android:scaleType="fitCenter"
             android:adjustViewBounds="true"
+            android:padding="10dp"
             />
 
         <ImageButton
@@ -92,6 +98,7 @@
             android:layout_column="2"
             android:scaleType="fitCenter"
             android:adjustViewBounds="true"
+            android:padding="10dp"
             />
 
         <ImageButton
@@ -104,6 +111,7 @@
             android:layout_column="0"
             android:scaleType="fitCenter"
             android:adjustViewBounds="true"
+            android:padding="10dp"
             />
 
         <ImageButton
@@ -116,6 +124,7 @@
             android:layout_column="1"
             android:scaleType="fitCenter"
             android:adjustViewBounds="true"
+            android:padding="10dp"
             />
 
         <ImageButton
@@ -128,6 +137,7 @@
             android:layout_column="2"
             android:scaleType="fitCenter"
             android:adjustViewBounds="true"
+            android:padding="10dp"
             />
 
     </GridLayout>
