@@ -26,7 +26,7 @@ public class Spel implements Parcelable{
         if (str_spelers.equals("1v1")) {
 
             spelers.add(new Gebruiker(lijst));
-            spelers.get(0).setNaam("speler 2");
+            spelers.get(1).setNaam("speler 2");
 
         } else if (str_spelers.equals("1vAi")){
             spelers.add(new Computerspeler(lijst));

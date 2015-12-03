@@ -19,11 +19,11 @@ public class Computerspeler extends Speler {
         int randomgetal=(int)(Math.random()*(double)mogelijkeZetten.size());
         // hier zet je de image om naar iets anders. ook is het nodig  de image knop niet clickbaar maken
         if(image.equals("X")) {
-            mogelijkeZetten.get(randomgetal).setImageResource(R.drawable.x);
+            mogelijkeZetten.get(randomgetal).setImageResource(R.mipmap.x);
             mogelijkeZetten.get(randomgetal).setTag("X");
         }
         else{
-            mogelijkeZetten.get(randomgetal).setImageResource(R.drawable.dot);
+            mogelijkeZetten.get(randomgetal).setImageResource(R.mipmap.dot);
             //mogelijkeZetten.get(randomgetal).setBackgroundColor(100);
             mogelijkeZetten.get(randomgetal).setTag("O");
         }

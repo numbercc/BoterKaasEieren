@@ -21,11 +21,11 @@ public class Gebruiker extends Speler{
                 // hier gaat de speler een zet doen knop moet ook niet klikbaar maken
 
                 if(image.equals("X")) {
-                    knop.setImageResource(R.drawable.x);
+                    knop.setImageResource(R.mipmap.x);
                     knop.setTag("X");
                 }
                 else{
-                    knop.setImageResource(R.drawable.dot);
+                    knop.setImageResource(R.mipmap.dot);
                     knop.setTag("O");
                 }
                 knop.setClickable(false);

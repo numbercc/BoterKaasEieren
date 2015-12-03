@@ -112,7 +112,6 @@ public class MainActivity extends AppCompatActivity {
                 knopLijst.get(i).setClickable(false);
             }
 
-            Log.d(""+i,""+knopLijst.get(i).isClickable());
             i++;
         }
         spel.setTegels(knopLijst);
