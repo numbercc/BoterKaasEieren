@@ -30,7 +30,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         bundle = getIntent().getExtras();
         String spelers = getIntent().getStringExtra("spelers");
-        Log.i("create", "" + spelers);
         spelMaken("" + spelers);
     }
 
@@ -47,7 +46,6 @@ public class MainActivity extends AppCompatActivity {
         knopLijst.add((ImageButton) findViewById((R.id.button9)));
         spel = new Spel(knopLijst, spelers);
         ((TextView) findViewById(R.id.speler1)).setText("Speler 1");
-        Log.i("speler", spelers);
         if (spelers.equals("1v1")) {
             ((TextView) findViewById(R.id.speler2)).setText("Speler 2");
         } else if (spelers.equals("1vAi")) {

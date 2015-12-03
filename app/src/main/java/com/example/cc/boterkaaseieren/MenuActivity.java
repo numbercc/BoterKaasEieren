@@ -26,7 +26,6 @@ public class MenuActivity extends Activity {
         else{
             speler="1v1";
         }
-        Log.i("Spel", speler);
         Intent intent = new Intent(this, MainActivity.class);
         intent.putExtra("spelers", speler);
         startActivity(intent);

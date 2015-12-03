@@ -16,7 +16,6 @@ public class Computerspeler extends Speler {
     @Override
     public void zetSpelen(ImageButton knop) {
         ArrayList<ImageButton> mogelijkeZetten=getMogelijkeZetten();
-        Log.d("mogelijke zetten",""+mogelijkeZetten.size());
         int randomgetal=(int)(Math.random()*(double)mogelijkeZetten.size());
         // hier zet je de image om naar iets anders. ook is het nodig  de image knop niet clickbaar maken
         if(image.equals("X")) {
